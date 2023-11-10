@@ -3,7 +3,7 @@ export default class Project {
     tasks = [];
 
     constructor(name) {
-        this.count = Project.count;
+        this.id = Project.count;
         this.name = name;
         Project.count++;
     }
@@ -49,8 +49,21 @@ export default class Project {
         
         console.log(string);
     }
-}
 
+    getTasks() {
+        return (this.tasks);
+    }
+
+    setTasks(tasks) {
+        this.tasks = tasks;
+    }
+
+    printTasks() {
+        this.tasks.forEach(task => {
+            task.print();
+        });
+    }
+}
 
 
 
