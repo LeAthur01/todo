@@ -1,5 +1,5 @@
 export default class Task {
-    static count = 0
+    static count = 1
     done = false;
 
     constructor(name, description, dueDate, priority) {

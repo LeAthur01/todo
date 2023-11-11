@@ -59,6 +59,7 @@ export default class Project {
     }
 
     printTasks() {
+        console.log('you are here');
         this.tasks.forEach(task => {
             task.print();
         });

@@ -1,10 +1,9 @@
-export default class ProjectRepository {
+import Project from './../entity/Project.js';
+import Task from './../entity/Task.js';
+
+class ProjectRepository {
     saveProjects(projects) {
-        if (this.storageAvailable("localStorage")) {
-            localStorage.setItem('projects', JSON.stringify(data));
-        } else {
-            console.log('local storage is not available');
-        }
+        localStorage.setItem('projects', JSON.stringify(data));
     }
 
     getProjects() {
@@ -25,3 +24,6 @@ export default class ProjectRepository {
         return projects;
     }
 }
+
+const projectRepository = new ProjectRepository();
+export default projectRepository;
