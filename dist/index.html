@@ -4,11 +4,57 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./reset.css">
     <link rel="stylesheet" href="./style.css">
     <script src="main.js" defer></script>
-    <script src="Task"></script>
+    <script src="//code.iconify.design/1/1.0.6/iconify.min.js"></script>
 </head>
 <body>
-    <h1>todo app</h1>
+    <!-- Header -->
+    <div id="nav-bar">
+        <span class="iconify" data-icon="tabler:slash"></span>
+        <span>TO - DO</span>
+        <span class="iconify" data-icon="material-symbols:checklist"></span>
+    </div>
+
+    <!-- Body -->
+    <div id="dash-board">
+        <div id="side-bar">
+            <div class="category">
+                <span data-hover="// Home">Home</span>
+                <div class="task-count">8</div>
+            </div>
+            <div class="category">
+                <span data-hover="// Today">Today</span>
+                <div class="task-count">8</div>
+            </div>
+            <div class="category">
+                <span data-hover="// Week">Week</span>
+                <div class="task-count">8</div>
+            </div>
+            <div class="category">
+                <span data-hover="// Project">Project</span>
+                <div class="task-count">8</div>
+            </div>
+            <div class="sub-category">
+                <div class="category">
+                    <span data-hover="// Gym">Gym</span>
+                    <div class="task-count">8</div>
+                </div>
+                <div class="category">
+                    <span data-hover="// Study">Study</span>
+                    <div class="task-count">8</div>
+                </div>
+                <div class="category">
+                    <span data-hover="// Home">Home</span>
+                    <div class="task-count">8</div>
+                </div>
+            </div>
+        </div>
+
+        <div id="todos">
+
+        </div>
+    </div>
 </body>
 </html>
