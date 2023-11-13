@@ -1,3 +1,7 @@
+* {
+    transition: all 0.3s ease;
+}
+
 html {
     font-family: Arial, Helvetica, sans-serif;
 }
@@ -20,10 +24,6 @@ html {
     gap: 5px;
     background-color: #eee;
     padding: 15px;
-}
-
-#todos {
-    background-color: #f7f7f7;
 }
 
 .category {
@@ -51,7 +51,6 @@ html {
     display: flex;
     justify-content: center;
     align-items: center;
-    text-align: center;
     width: 12px;
     height: 12px;
     border-radius: 100%;
@@ -78,5 +77,73 @@ html {
     font-size: 9px;
     cursor: pointer;
 }
+
+#todos {
+    background-color: white;
+    padding: 20px;
+}
+
+#todos > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 500px;
+    background-color: #eee;
+    color: #501f3a;
+    font-size: 9px;
+    font-weight: 100;
+    line-height: 0.8;
+}
+
+#todos > div:hover {
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
+}
+
+.vertical-line {
+    height: 30px;
+    width: 2px;
+    background-color: violet;
+    margin-right: 5px;
+}
+
+#todos input {
+    margin-right: 10px;
+}
+
+.todo-title {
+    margin-right: auto;
+}
+
+#todos .button {
+    padding: 6px 5px;
+    margin-right: 15px;
+    text-transform:uppercase;
+    font-weight: 600;
+    border: 1px solid #3ba395;
+    color: #3ba395;
+    border-radius: 3px;
+}
+
+#todos .button:hover {
+    color: white;
+    background-color: #3ba395;
+    cursor: pointer;
+}
+
+#todos .date {
+    margin-right: 10px;
+    font-size: 8px;
+}
+
+#todos .iconify {
+    margin-right: 5px;
+}
+
+#todos .iconify:hover {
+    color: #3ba395;
+    cursor: pointer;
+}
+
 
 
