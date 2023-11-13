@@ -16,6 +16,8 @@ html {
 #dash-board {
     display: grid;
     grid-template-columns: auto 1fr;
+    height: 100vh;
+    position: relative;
 }
 
 #side-bar {
@@ -89,6 +91,7 @@ html {
     align-items: center;
     width: 100%;
     max-width: 500px;
+    margin-bottom: 8px;
     background-color: #eee;
     color: #501f3a;
     font-size: 9px;
@@ -116,7 +119,7 @@ html {
 }
 
 #todos .button {
-    padding: 6px 5px;
+    padding: 4px 5px;
     margin-right: 15px;
     text-transform:uppercase;
     font-weight: 600;
@@ -144,6 +147,48 @@ html {
     color: #3ba395;
     cursor: pointer;
 }
+
+#pop-up.fullscreen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+#pop-up .flex-container-center {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    width: 250px;
+    background-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.6);
+    color: #501f3a;
+    transition: none;
+    font-size: 12px;
+}
+
+#pop-up .heading {
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+#pop-up p span {
+    display: inline-block;
+    width: 60px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+#pop-up.hidden {
+    display: none;
+}
+
+
 
 
 
