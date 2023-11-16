@@ -16,7 +16,7 @@
   \**********************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\nfunction popUp() {\n    const detailBtns = document.querySelectorAll('#todos .button');\n    const popUpBackground = document.querySelector('#pop-up');\n    const popUp = document.querySelector('#pop-up div');\n\n\n    detailBtns.forEach(btn => {\n        btn.addEventListener('click', e => {\n            popUpBackground.classList.toggle('hidden');\n        })\n    });\n\n    popUpBackground.addEventListener('click', e => {\n        popUpBackground.classList.toggle('hidden');\n    });\n\n    popUp.addEventListener('click', e => {\n        e.stopPropagation();\n    })\n}\n\npopUp();\n\nfunction toggleHidden(e) {\n\n}\n\n\n\n\n\n\n//# sourceURL=webpack://todo/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n\n\n\nfunction popUp() {\n    const detailBtns = document.querySelectorAll('#todos .button');\n    const popUpBackground = document.querySelector('#pop-up');\n    const popUp = document.querySelector('#pop-up div');\n\n\n    detailBtns.forEach(btn => {\n        btn.addEventListener('click', e => {\n            popUpBackground.classList.toggle('hidden');\n        })\n    });\n\n    popUpBackground.addEventListener('click', e => {\n        popUpBackground.classList.toggle('hidden');\n    });\n\n    popUp.addEventListener('click', e => {\n        e.stopPropagation();\n    })\n}\n\npopUp();\n\n\n\n\n\n\n//# sourceURL=webpack://todo/./src/index.js?");
 
 /***/ })
 

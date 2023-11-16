@@ -1,3 +1,6 @@
+
+
+
 function popUp() {
     const detailBtns = document.querySelectorAll('#todos .button');
     const popUpBackground = document.querySelector('#pop-up');
@@ -20,10 +23,6 @@ function popUp() {
 }
 
 popUp();
-
-function toggleHidden(e) {
-
-}
 
 
 

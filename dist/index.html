@@ -51,6 +51,8 @@
                     <div class="task-count">8</div>
                 </div>
             </div>
+
+            <span id="add-btn" class="iconify" data-icon="ic:baseline-plus"></span>
         </div>
         
         <!-- Todo -->
@@ -75,7 +77,8 @@
                 <span class="iconify" data-icon="ph:trash"></span>
             </div>
         </div>
-
+    </div>
+    
     <div id="pop-up" class="fullscreen hidden">
         <div class="flex-container-center">
             <span class="heading">brush teeth</span>
@@ -83,6 +86,35 @@
             <p><span>Priority:</span> Low</p>
             <p><span>Due Date:</span> December 12th, 2021</p>
             <p><span>Details:</span> with colgate</p>
+        </div>
+    </div>
+
+    <h1>hello world~~</h1>
+
+    <div id="pop-up-form" class="fullscreen">
+        <div id="pop-up-form__grid-layout">
+            <div id="pop-up-form__header">Create a new...</div>
+            
+            <div id="pop-up-form__side-bar">
+                <div>To Do</div>
+                <div>Project</div>
+            </div>
+
+            <div id="pop-up-create">
+                <input type="text" name="" placeholder="Title: Pay bills">
+                <input type="text" placeholder="Details: e.g internet, phone, rent">
+                <div id="pop-up-create__date">
+                    <div>Due Date</div>
+                    <input type="date">
+                </div>
+                <div>
+                    <p>Priority</p>
+                    <input type="radio" value="low">LOW
+                    <input type="radio" value="medium">MEDIUM
+                    <input type="radio" value="high">HIGH
+                    <button type="submit">ADD TO DO</button>
+                </div>
+            </div>
         </div>
     </div>
 </body>
