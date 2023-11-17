@@ -306,6 +306,10 @@ body {
     text-transform: uppercase;
 }
 
+#todo__date-wrapper input:hover {
+    cursor: pointer;
+}
+
 #todo__priority-wrapper {
     display: flex;
     align-items: center;
@@ -361,12 +365,28 @@ body {
     cursor: pointer;
 }
 
-
-
-
 #todo__priority-wrapper input {
     display: none;
 }
+
+#todo__priority-wrapper button {
+    all: unset;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 3px 8px;
+    border: 1.5px solid #3ba395;
+    border-radius: 4px;
+    color: #3ba395;
+    transition: all 0.3s ease;
+}
+
+#todo__priority-wrapper button:hover {
+    cursor: pointer;
+    color: white;
+    background-color: #3ba395;
+}
+
+
 
 
 
