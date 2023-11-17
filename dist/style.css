@@ -1,5 +1,6 @@
 * {
     transition: all 0.3s ease;
+    box-sizing: border-box;
 }
 
 html {
@@ -285,6 +286,86 @@ body {
     font-size: 10px;
     line-height: 20px;
     margin-bottom: auto;
+}
+
+#todo__date-wrapper {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+#todo__date-wrapper input {
+    all: unset;
+    border: 1.5px solid #3ba395;
+    border-radius: 4px;
+    padding: 3px 5px;
+    font-size: 10px;
+    color: #3ba395;
+    font-weight: 600;
+    line-height: normal;
+    text-transform: uppercase;
+}
+
+#todo__priority-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.todo__field {
+    font-size: 12px;
+    width: 65px;
+}
+
+#todo__priority-wrapper label {
+    padding: 3px 10px;
+    font-size: 10px;
+    font-weight: 600;
+    border: 1.5px solid;
+    border-radius: 4px;
+    margin-right: 8px;
+}
+
+#todo__priority-wrapper label[for="high-priority"] {
+    margin-right: auto;
+    border-color: red;
+    color: red;
+}
+
+#todo__priority-wrapper label[for="high-priority"]:hover {
+    margin-right: auto;
+    color: white;
+    background-color: red;
+}
+
+#todo__priority-wrapper label[for="medium-priority"] {
+    border-color: orange;
+    color: orange;
+}
+
+#todo__priority-wrapper label[for="medium-priority"]:hover {
+    background-color: orange;
+    color: white;
+}
+
+#todo__priority-wrapper label[for="low-priority"] {
+    border-color: green;
+    color: green;
+}
+
+#todo__priority-wrapper label[for="low-priority"]:hover {
+    background-color: green;
+    color: white;
+}
+
+#todo__priority-wrapper label:hover {
+    cursor: pointer;
+}
+
+
+
+
+#todo__priority-wrapper input {
+    display: none;
 }
 
 

@@ -92,7 +92,7 @@
     <h1>hello world~~</h1>
 
     <div id="pop-up-form" class="fullscreen">
-        <div id="pop-up-form__grid-layout">
+        <form id="pop-up-form__grid-layout">
             <div id="pop-up-form__header">Create a new...</div>
             
             <div id="pop-up-form__side-bar">
@@ -103,19 +103,24 @@
             <div id="pop-up-form__todo">
                 <input type="text" name="title" placeholder="Title: Pay bills">
                 <input type="text" name="details" placeholder="Details: e.g internet, phone, rent">
-                <div>
-                    <div>Due Date</div>
-                    <input type="date">
+                <div id="todo__date-wrapper">
+                    <div class="todo__field">Due Date:</div>
+                    <div id="todo__date-input-wrapper">
+                        <input type="date" name="dueDate">
+                    </div>
                 </div>
-                <div>
-                    <p>Priority</p>
-                    <input type="radio" value="low">LOW
-                    <input type="radio" value="medium">MEDIUM
-                    <input type="radio" value="high">HIGH
-                    <button type="submit">ADD TO DO</button>
+                <div id="todo__priority-wrapper">
+                    <div class="todo__field">Priority:</div>
+                    <input type="radio" id="low-priority" name="priority" value="low">
+                    <label for="low-priority">LOW</label>
+                    <input type="radio" id="medium-priority" name="priority" value="medium">
+                    <label for="medium-priority">MEDIUM</label>
+                    <input type="radio" id="high-priority" name="priority" value="high">
+                    <label for="high-priority">HIGH</label>
+                    <button type="submit" action="">ADD TO DO</button>
                 </div>
             </div>
-        </div>
+        </form>
     </div>
 </body>
 </html>
