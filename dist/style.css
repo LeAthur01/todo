@@ -335,10 +335,15 @@ body {
     color: red;
 }
 
-#todo__priority-wrapper label[for="high-priority"]:hover {
-    margin-right: auto;
+#todo__priority-wrapper label[for="high-priority"]:hover,
+.red {
     color: white;
     background-color: red;
+}
+
+#todo__priority-wrapper label[for="high-priority"].red.checked {
+    border-color: red;
+    color: white;
 }
 
 #todo__priority-wrapper label[for="medium-priority"] {
@@ -346,8 +351,14 @@ body {
     color: orange;
 }
 
-#todo__priority-wrapper label[for="medium-priority"]:hover {
+#todo__priority-wrapper label[for="medium-priority"]:hover,
+.orange {
     background-color: orange;
+    color: white;
+}
+
+#todo__priority-wrapper label[for="medium-priority"].orange.checked {
+    border-color: orange;
     color: white;
 }
 
@@ -357,6 +368,11 @@ body {
 }
 
 #todo__priority-wrapper label[for="low-priority"]:hover {
+    background-color: green;
+    color: white;
+}
+
+#todo__priority-wrapper label[for="low-priority"].green.checked {
     background-color: green;
     color: white;
 }
