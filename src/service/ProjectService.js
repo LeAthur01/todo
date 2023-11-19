@@ -12,13 +12,12 @@ class ProjectService {
     }
     
     saveProject(project) {
-        ProjectService.projects.push(project);
-        ProjectService.projectRepository.saveProjects(ProjectService.projects);
+        this.projects.push(project);
+        ProjectService.projectRepository.saveProjects(this.projects);
     }
 
     getProjects() {
         ProjectService.projects = ProjectService.projectRepository.getProjects();
-        console.log('you are here');
         // This function retrun a copy of the static property projects
         return ProjectService.projects;
     }
@@ -36,6 +35,10 @@ class ProjectService {
             return copyProject;
         });
 
+        todayProjects = todayProjects.filter(project => {
+            return project.getTasks().length > 0;
+        });
+
         return todayProjects;
     }
 
@@ -51,6 +54,10 @@ class ProjectService {
             }));
             return copyProject;
         });
+
+        weekProjects = weekProjects.filter(project => {
+            return project.getTasks().length > 0;
+        })
 
         return weekProjects;
     }

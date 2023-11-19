@@ -10,22 +10,110 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/entity/Project.js":
+/*!*******************************!*\
+  !*** ./src/entity/Project.js ***!
+  \*******************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ Project)\n/* harmony export */ });\nclass Project {\n    static count = 1;\n    tasks = [];\n\n    constructor(name) {\n        this.id = Project.count;\n        this.name = name;\n        Project.count++;\n    }\n\n    getId() {\n        return this.id;\n    }\n\n    setName(name) {\n        this.name = name;\n    }\n\n    getName() {\n        return this.name;\n    }\n\n    getTasks() {\n        return this.tasks;\n    }\n\n    addTask(task) {\n        this.tasks.push(task);\n    }\n\n    taskCount() {\n        return this.tasks.length;\n    }\n\n    deleteTask(id) {\n        console.log(id)\n        let newArray = this.tasks.filter(task => {\n            console.log(task.getId());    \n            return task.getId() !== id;\n        });\n        this.tasks = newArray;\n    }\n\n    print() {\n        let string = `\n            id: ${this.id} \n            name: ${this.name} \n            tasks: ${this.tasks}`;\n        \n        console.log(string);\n    }\n\n    getTasks() {\n        return (this.tasks);\n    }\n\n    setTasks(tasks) {\n        this.tasks = tasks;\n    }\n\n    printTasks() {\n        console.log('you are here');\n        this.tasks.forEach(task => {\n            task.print();\n        });\n    }\n}\n\n\n\n\n\n\n\n//# sourceURL=webpack://todo/./src/entity/Project.js?");
+
+/***/ }),
+
+/***/ "./src/entity/Task.js":
+/*!****************************!*\
+  !*** ./src/entity/Task.js ***!
+  \****************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ Task)\n/* harmony export */ });\nclass Task {\n    static count = 1\n    done = false;\n\n    constructor(name, description, dueDate, priority) {\n        this.id = Task.count;\n        this.name = name;\n        this.description = description;\n        this.dueDate = dueDate;\n        this.priority = priority;\n        Task.count++;\n    }\n\n    getId() {\n        return this.id;\n    }\n\n    setName(name) {\n        this.name = name;\n    }\n\n    getName() {\n        return this.name;\n    }\n\n    setDescription(description) {\n        this.description = description;\n    }\n\n    getDescription() {\n        return this.description;\n    }\n\n    setDueDate(dueDate) {\n        console.log('you are in here');\n        this.dueDate = dueDate;\n    }\n\n    getDueDate() {\n        return this.dueDate;\n    }\n\n    setPriority(priority) {\n        this.priority = priority;\n    }\n\n    setDone(done) {\n        this.done = done;\n    }\n\n    isDone() {\n        return this.done;\n    }\n\n    print() {\n        let string = `\n            id: ${this.id}\n            name: ${this.name}\n            dueDate: ${this.dueDate}\n            done: ${this.done}`\n\n        console.log(string);\n    }\n}\n\n\n\n\n//# sourceURL=webpack://todo/./src/entity/Task.js?");
+
+/***/ }),
+
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\nfunction detailsPopUp() {\n    const detailBtns = document.querySelectorAll('#todos .button');\n    const popUpBackground = document.querySelector('#pop-up');\n    const popUp = document.querySelector('#pop-up div');\n\n\n    detailBtns.forEach(btn => {\n        btn.addEventListener('click', e => {\n            popUpBackground.classList.toggle('hidden');\n        })\n    });\n\n    popUpBackground.addEventListener('click', e => {\n        popUpBackground.classList.toggle('hidden');\n    });\n\n    popUp.addEventListener('click', e => {\n        e.stopPropagation();\n    })\n}\n\nfunction setFocusPriority() {\n    const labels = document.querySelectorAll('#todo__priority-wrapper label');\n    const lowLabel = labels[0];\n    const mediumLabel = labels[1];\n    const highLabel = labels[2];\n\n    lowLabel.addEventListener('click', e => {\n        lowLabel.classList.add('green');\n        lowLabel.classList.add('checked');\n        if (mediumLabel.classList.contains('checked')) {\n            mediumLabel.classList.remove('orange');\n            mediumLabel.classList.remove('checked');\n        } else {\n            highLabel.classList.remove('red');\n            highLabel.classList.remove('checked');\n        }\n    });\n\n    mediumLabel.addEventListener('click', e => {\n        mediumLabel.classList.add('orange');\n        mediumLabel.classList.add('checked');\n        if (lowLabel.classList.contains('checked')) {\n            lowLabel.classList.remove('green');\n            lowLabel.classList.remove('checked');\n        } else {\n            highLabel.classList.remove('red');\n            highLabel.classList.remove('checked');\n        }\n    });\n\n    highLabel.addEventListener('click', e => {\n        highLabel.classList.add('red');\n        highLabel.classList.add('checked');\n        if (lowLabel.classList.contains('checked')) {\n            lowLabel.classList.remove('green');\n            lowLabel.classList.remove('checked');\n        } else {\n            mediumLabel.classList.remove('orange');\n            mediumLabel.classList.remove('checked');\n        }\n    });\n}\n\nfunction getTodoFormData() {\n    const form = document.forms[\"pop-up-form__grid-layout\"];\n    console.log(form);\n}\n\ndetailsPopUp();\nsetFocusPriority();\ngetTodoFormData();\n\n\n\n\n\n//# sourceURL=webpack://todo/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _entity_Project_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./entity/Project.js */ \"./src/entity/Project.js\");\n/* harmony import */ var _entity_Task_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./entity/Task.js */ \"./src/entity/Task.js\");\n/* harmony import */ var _service_ProjectService_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./service/ProjectService.js */ \"./src/service/ProjectService.js\");\n\n\n\n\nfunction detailsPopUp() {\n    const detailBtns = document.querySelectorAll('#todos .button');\n    const popUpBackground = document.querySelector('#pop-up');\n    const popUp = document.querySelector('#pop-up div');\n\n\n    detailBtns.forEach(btn => {\n        btn.addEventListener('click', e => {\n            popUpBackground.classList.toggle('hidden');\n        })\n    });\n\n    popUpBackground.addEventListener('click', e => {\n        popUpBackground.classList.toggle('hidden');\n    });\n\n    popUp.addEventListener('click', e => {\n        e.stopPropagation();\n    })\n}\n\nfunction setFocusPriority() {\n    const labels = document.querySelectorAll('#todo__priority-wrapper label');\n    const lowLabel = labels[0];\n    const mediumLabel = labels[1];\n    const highLabel = labels[2];\n\n    lowLabel.addEventListener('click', e => {\n        lowLabel.classList.add('green');\n        lowLabel.classList.add('checked');\n        if (mediumLabel.classList.contains('checked')) {\n            mediumLabel.classList.remove('orange');\n            mediumLabel.classList.remove('checked');\n        } else {\n            highLabel.classList.remove('red');\n            highLabel.classList.remove('checked');\n        }\n    });\n\n    mediumLabel.addEventListener('click', e => {\n        mediumLabel.classList.add('orange');\n        mediumLabel.classList.add('checked');\n        if (lowLabel.classList.contains('checked')) {\n            lowLabel.classList.remove('green');\n            lowLabel.classList.remove('checked');\n        } else {\n            highLabel.classList.remove('red');\n            highLabel.classList.remove('checked');\n        }\n    });\n\n    highLabel.addEventListener('click', e => {\n        highLabel.classList.add('red');\n        highLabel.classList.add('checked');\n        if (lowLabel.classList.contains('checked')) {\n            lowLabel.classList.remove('green');\n            lowLabel.classList.remove('checked');\n        } else {\n            mediumLabel.classList.remove('orange');\n            mediumLabel.classList.remove('checked');\n        }\n    });\n}\n\nfunction getTodoFormData() {\n    const form = document.forms[\"pop-up-form__grid-layout\"];\n    form.addEventListener(\"submit\", (event) => {\n        event.preventDefault();\n        const title = form.title.value;\n        const details = form.details.value;\n        const dueDate = new Date(form.dueDate.value);\n        const priority = form.priority.value;\n\n        const task = new _entity_Task_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"](title, details, dueDate, priority);\n        console.log(task);\n        \n        // projectService.saveProject(project1);\n        // const project1 = new Project('House Innovation');\n        // project1.addTask(task);\n\n        // const project2 = new Project('School Assignment');\n        // project2.addTask(new Task('clean house', 'with cleaner', new Date(), 'high'));\n\n        // projectService.saveProject(project2);\n        // const projectData = projectService.getProjects();\n        // const thisWeekProjectdata = projectService.getThisWeekProjects();\n        // const todayProjectData = projectService.getTodayProjects();\n\n        // console.log('All projects: ' + projectData);\n        // console.log(projectData);\n        // console.log('Today projects: ' + todayProjectData);\n        // console.log(todayProjectData);\n        // console.log('This week projects: ' + thisWeekProjectdata);\n        // console.log(thisWeekProjectdata);\n    });\n}\n\ndetailsPopUp();\nsetFocusPriority();\ngetTodoFormData();\n\n\n\n\n\n//# sourceURL=webpack://todo/./src/index.js?");
+
+/***/ }),
+
+/***/ "./src/repository/ProjectRepository.js":
+/*!*********************************************!*\
+  !*** ./src/repository/ProjectRepository.js ***!
+  \*********************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _entity_Project_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../entity/Project.js */ \"./src/entity/Project.js\");\n/* harmony import */ var _entity_Task_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../entity/Task.js */ \"./src/entity/Task.js\");\n\n\n\nclass ProjectRepository {\n    saveProjects(projects) {\n        localStorage.setItem('projects', JSON.stringify(projects));\n    }\n\n    getProjects() {\n        let jsonProjects = JSON.parse(localStorage.getItem('projects'));\n\n        // Populate the list of json projects\n        let projects = jsonProjects.map(project => {\n            return Object.assign(new _entity_Project_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"](), project);\n        });\n        \n        // Populate the list of tasks of each project\n        projects.forEach(project => {\n            project.setTasks(project.getTasks().map(task => {\n                return Object.assign(new _entity_Task_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"](), task);\n            }));\n        });\n\n        return projects;\n    }\n}\n\nconst projectRepository = new ProjectRepository();\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (projectRepository);\n\n//# sourceURL=webpack://todo/./src/repository/ProjectRepository.js?");
+
+/***/ }),
+
+/***/ "./src/service/ProjectService.js":
+/*!***************************************!*\
+  !*** ./src/service/ProjectService.js ***!
+  \***************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _entity_Task_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../entity/Task.js */ \"./src/entity/Task.js\");\n/* harmony import */ var _entity_Project_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../entity/Project.js */ \"./src/entity/Project.js\");\n/* harmony import */ var _utility_DateUtil_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../utility/DateUtil.js */ \"./src/utility/DateUtil.js\");\n/* harmony import */ var _repository_ProjectRepository_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../repository/ProjectRepository.js */ \"./src/repository/ProjectRepository.js\");\n\n\n\n\n\nclass ProjectService {\n    static projectRepository;\n    projects = [];\n\n    constructor(projectRepository) {\n        ProjectService.projectRepository = projectRepository;\n    }\n    \n    saveProject(project) {\n        this.projects.push(project);\n        ProjectService.projectRepository.saveProjects(this.projects);\n    }\n\n    getProjects() {\n        ProjectService.projects = ProjectService.projectRepository.getProjects();\n        // This function retrun a copy of the static property projects\n        return ProjectService.projects;\n    }\n\n    getTodayProjects() {\n        // this.getProjects();\n        let projects = [...this.projects];\n        let todayProjects = projects.map(project => {\n            let copyProject = new _entity_Project_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"]();\n            Object.assign(copyProject, project);\n            copyProject.setTasks(copyProject.getTasks().filter(task => {\n                // console.log(task);\n              return _utility_DateUtil_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"].isToday(task.getDueDate());\n            }));\n            return copyProject;\n        });\n\n        todayProjects = todayProjects.filter(project => {\n            return project.getTasks().length > 0;\n        });\n\n        return todayProjects;\n    }\n\n    getThisWeekProjects() {\n        // this.getProjects();\n        let projects = [...this.projects];\n        let weekProjects = projects.map(project => {\n            let copyProject = new _entity_Project_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"]();\n            Object.assign(copyProject, project);\n            copyProject.setTasks(copyProject.getTasks().filter(task => {\n                // console.log(task);\n              return _utility_DateUtil_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"].isDateInThisWeek(task.getDueDate());\n            }));\n            return copyProject;\n        });\n\n        weekProjects = weekProjects.filter(project => {\n            return project.getTasks().length > 0;\n        })\n\n        return weekProjects;\n    }\n}\n\nlet projectService = new ProjectService(_repository_ProjectRepository_js__WEBPACK_IMPORTED_MODULE_3__[\"default\"]);\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (projectService);\n\n//# sourceURL=webpack://todo/./src/service/ProjectService.js?");
+
+/***/ }),
+
+/***/ "./src/utility/DateUtil.js":
+/*!*********************************!*\
+  !*** ./src/utility/DateUtil.js ***!
+  \*********************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nclass DateUtil {\n    isToday(date) {\n        let today = new Date();\n        return today.toDateString() === date.toDateString();\n    }\n\n    isDateInThisWeek(date) {\n        const todayObj = new Date();\n        const todayDate = todayObj.getDate();\n        const todayDay = todayObj.getDay();\n      \n        // get first date of week\n        const firstDayOfWeek = new Date(todayObj.setDate(todayDate - todayDay + 1));\n        firstDayOfWeek.setHours(0);\n        firstDayOfWeek.setMinutes(0);\n        firstDayOfWeek.setSeconds(0);\n        firstDayOfWeek.setMilliseconds(0);\n\n        // get last date of week\n        const lastDayOfWeek = new Date(firstDayOfWeek);\n        lastDayOfWeek.setDate(lastDayOfWeek.getDate() + 7);\n      \n        // if date is equal or within the first and last dates of the week\n        // console.log('first date of the week' + ' ' + firstDayOfWeek);\n        // console.log('the checking date: ' + date);\n        // console.log('the last day of the week ' + lastDayOfWeek);\n        return date >= firstDayOfWeek && date <= lastDayOfWeek;\n    }\n}\n\n\nconst dateUtil = new DateUtil();\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (dateUtil);\n\n//# sourceURL=webpack://todo/./src/utility/DateUtil.js?");
 
 /***/ })
 
 /******/ 	});
 /************************************************************************/
-/******/ 	// The require scope
-/******/ 	var __webpack_require__ = {};
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
 /******/ 	
 /************************************************************************/
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = (exports, definition) => {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	(() => {
+/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/make namespace object */
 /******/ 	(() => {
 /******/ 		// define __esModule on exports
@@ -42,8 +130,7 @@ eval("__webpack_require__.r(__webpack_exports__);\nfunction detailsPopUp() {\n  
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module can't be inlined because the eval devtool is used.
-/******/ 	var __webpack_exports__ = {};
-/******/ 	__webpack_modules__["./src/index.js"](0, __webpack_exports__, __webpack_require__);
+/******/ 	var __webpack_exports__ = __webpack_require__("./src/index.js");
 /******/ 	
 /******/ })()
 ;

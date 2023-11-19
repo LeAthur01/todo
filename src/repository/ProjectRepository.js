@@ -3,7 +3,7 @@ import Task from './../entity/Task.js';
 
 class ProjectRepository {
     saveProjects(projects) {
-        localStorage.setItem('projects', JSON.stringify(data));
+        localStorage.setItem('projects', JSON.stringify(projects));
     }
 
     getProjects() {
