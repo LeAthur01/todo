@@ -1,7 +1,7 @@
 import Project from './entity/Project.js';
 import Task from './entity/Task.js';
 import projectService from './service/ProjectService.js';
-
+// Popup the details of a todo when clicking on the detail buttons
 function detailsPopUp() {
     const detailBtns = document.querySelectorAll('#todos .button');
     const popUpBackground = document.querySelector('#pop-up');
@@ -24,6 +24,7 @@ function detailsPopUp() {
     })
 }
 
+// Popup the todo form when clicking on the add button
 function todoPopUp() {
     const addBtn = document.querySelector('.iconify-clicked-wrapper');
     const popUpBackground = document.querySelector('#pop-up-form');
@@ -44,6 +45,7 @@ function todoPopUp() {
     })
 }
 
+// Highlight the priority checkboxs in the todo form when clicking on it
 function setFocusPriority() {
     const labels = document.querySelectorAll('#todo__priority-wrapper label');
     const lowLabel = labels[0];
@@ -87,6 +89,7 @@ function setFocusPriority() {
     });
 }
 
+// Reset the priority checboxs after the todo form has been submitted
 function uncheckPriority() {
     const labels = document.querySelectorAll('#todo__priority-wrapper label');
     labels.forEach(label => {
@@ -94,7 +97,11 @@ function uncheckPriority() {
     });
 }
 
-function getTodoFormData() {
+
+const universalProject = new Project('Default');
+
+// Get the data from to todo form
+function saveTodoFormData() {
     const form = document.forms["pop-up-form__grid-layout"];
     form.addEventListener("submit", (event) => {
         event.preventDefault();
@@ -106,22 +113,12 @@ function getTodoFormData() {
         const task = new Task(title, details, dueDate, priority);
         console.log(task);
         
+        universalProject.addTask(task);
+        projectService.saveProject(universalProject);
 
         // reset the form after it has been submitted
         form.reset();
         uncheckPriority();
-
-        // projectService.saveProject(project1);
-        // const project1 = new Project('House Innovation');
-        // project1.addTask(task);
-
-        // const project2 = new Project('School Assignment');
-        // project2.addTask(new Task('clean house', 'with cleaner', new Date(), 'high'));
-
-        // projectService.saveProject(project2);
-        // const projectData = projectService.getProjects();
-        // const thisWeekProjectdata = projectService.getThisWeekProjects();
-        // const todayProjectData = projectService.getTodayProjects();
 
         // console.log('All projects: ' + projectData);
         // console.log(projectData);
@@ -135,7 +132,7 @@ function getTodoFormData() {
 detailsPopUp();
 todoPopUp();
 setFocusPriority();
-getTodoFormData();
+saveTodoFormData();
 
 
 

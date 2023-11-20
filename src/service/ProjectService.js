@@ -6,13 +6,18 @@ import projectRepository from './../repository/ProjectRepository.js';
 class ProjectService {
     static projectRepository;
     projects = [];
+    first = true;
 
     constructor(projectRepository) {
         ProjectService.projectRepository = projectRepository;
     }
     
     saveProject(project) {
-        this.projects.push(project);
+        if (this.first) {
+            this.projects.push(project);
+            this.first = false;
+        }
+        
         ProjectService.projectRepository.saveProjects(this.projects);
     }
 
