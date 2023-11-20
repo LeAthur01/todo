@@ -32,7 +32,6 @@ export default class Task {
     }
 
     setDueDate(dueDate) {
-        console.log('you are in here');
         this.dueDate = dueDate;
     }
 
@@ -44,7 +43,7 @@ export default class Task {
         this.priority = priority;
     }
 
-    getPriority(priority) {
+    getPriority() {
         return this.priority;
     }
 

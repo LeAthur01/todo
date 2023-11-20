@@ -96,8 +96,6 @@ function uncheckPriority() {
 }
 
 
-const universalProject = new Project('Default');
-
 // Get the data from to todo form
 function saveTodoFormData() {
     const form = document.forms["pop-up-form__grid-layout"];
@@ -110,7 +108,8 @@ function saveTodoFormData() {
 
         const task = new Task(title, details, dueDate, priority);
         console.log(task);
-        
+
+        const universalProject = projectService.getProjects()[0];
         universalProject.addTask(task);
         projectService.saveProject(universalProject);
 
@@ -161,17 +160,25 @@ function addTask(task) {
     detailsPopUp(task);
 
     // Close form after the form has been submitted
-    const popUpBackground = document.querySelector('#pop-up-form');
-    popUpBackground.classList.toggle('hidden');
+    // const popUpBackground = document.querySelector('#pop-up-form');
+    // popUpBackground.classList.toggle('hidden');
 }
 
 function loadPage() {
-
+    const defaultProject = projectService.getProjects();
+    if (defaultProject.length > 0) {
+        const tasks = defaultProject[0].getTasks();
+        console.log(tasks);
+        tasks.forEach(task => {
+            addTask(task);
+        });
+    }
 }
 
 todoPopUp();
 setFocusPriority();
 saveTodoFormData();
+loadPage();
 
 
 

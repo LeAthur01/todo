@@ -7,21 +7,31 @@ class ProjectRepository {
     }
 
     getProjects() {
-        let jsonProjects = JSON.parse(localStorage.getItem('projects'));
+        let jsonProjects = JSON.parse(localStorage.getItem('projects')) || new Project('Default');
 
-        // Populate the list of json projects
-        let projects = jsonProjects.map(project => {
-            return Object.assign(new Project(), project);
-        });
+        if (localStorage.getItem('projects')) {
+            // Populate the list of json projects
+            let projects = jsonProjects.map(project => {
+                return Object.assign(new Project(), project);
+            });
+            
+            // Populate the list of tasks of each project
+            projects.forEach(project => {
+                project.setTasks(project.getTasks().map(task => {
+                    const populatedTask = Object.assign(new Task(), task);
+    
+                    // Make the queried date Date object
+                    const dueDate = new Date(populatedTask.getDueDate());
+                    populatedTask.setDueDate(dueDate)
+    
+                    return populatedTask;
+                }));
+            });
+            
+            return projects;
+        }
         
-        // Populate the list of tasks of each project
-        projects.forEach(project => {
-            project.setTasks(project.getTasks().map(task => {
-                return Object.assign(new Task(), task);
-            }));
-        });
-
-        return projects;
+        return jsonProjects;
     }
 }
 
