@@ -66,6 +66,13 @@ function setFocusPriority() {
     });
 }
 
+function uncheckPriority() {
+    const labels = document.querySelectorAll('#todo__priority-wrapper label');
+    labels.forEach(label => {
+        label.removeAttribute('class');
+    });
+}
+
 function getTodoFormData() {
     const form = document.forms["pop-up-form__grid-layout"];
     form.addEventListener("submit", (event) => {
@@ -77,6 +84,11 @@ function getTodoFormData() {
 
         const task = new Task(title, details, dueDate, priority);
         console.log(task);
+        
+
+        // reset the form after it has been submitted
+        form.reset();
+        uncheckPriority();
         
         // projectService.saveProject(project1);
         // const project1 = new Project('House Innovation');
