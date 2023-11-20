@@ -28,13 +28,11 @@ class ProjectService {
     }
 
     getTodayProjects() {
-        // this.getProjects();
         let projects = [...this.projects];
         let todayProjects = projects.map(project => {
             let copyProject = new Project();
             Object.assign(copyProject, project);
             copyProject.setTasks(copyProject.getTasks().filter(task => {
-                // console.log(task);
               return dateUtil.isToday(task.getDueDate());
             }));
             return copyProject;
@@ -48,13 +46,11 @@ class ProjectService {
     }
 
     getThisWeekProjects() {
-        // this.getProjects();
         let projects = [...this.projects];
         let weekProjects = projects.map(project => {
             let copyProject = new Project();
             Object.assign(copyProject, project);
             copyProject.setTasks(copyProject.getTasks().filter(task => {
-                // console.log(task);
               return dateUtil.isDateInThisWeek(task.getDueDate());
             }));
             return copyProject;

@@ -7,7 +7,7 @@ class ProjectRepository {
     }
 
     getProjects() {
-        let jsonProjects = JSON.parse(localStorage.getItem('projects')) || new Project('Default');
+        let jsonProjects = JSON.parse(localStorage.getItem('projects')) || [new Project('Default')];
 
         if (localStorage.getItem('projects')) {
             // Populate the list of json projects
