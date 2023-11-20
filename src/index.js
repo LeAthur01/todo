@@ -29,8 +29,6 @@ function todoPopUp() {
     const addBtn = document.querySelector('.iconify-clicked-wrapper');
     const popUpBackground = document.querySelector('#pop-up-form');
     const popUpForm = document.querySelector('#pop-up-form form');
-    console.log(addBtn);
-    console.log(popUpBackground);
 
     addBtn.addEventListener('click', e => {
         popUpBackground.classList.toggle('hidden');
@@ -119,14 +117,13 @@ function saveTodoFormData() {
         // reset the form after it has been submitted
         form.reset();
         uncheckPriority();
-
-        // console.log('All projects: ' + projectData);
-        // console.log(projectData);
-        // console.log('Today projects: ' + todayProjectData);
-        // console.log(todayProjectData);
-        // console.log('This week projects: ' + thisWeekProjectdata);
-        // console.log(thisWeekProjectdata);
+        const titleField = document.querySelector("input[name='title']");
+        titleField.focus();
     });
+}
+
+function loadPage() {
+
 }
 
 detailsPopUp();
