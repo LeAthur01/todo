@@ -6,11 +6,12 @@ function detailsPopUp() {
     const detailBtns = document.querySelectorAll('#todos .button');
     const popUpBackground = document.querySelector('#pop-up');
     const popUp = document.querySelector('#pop-up div');
+    const popUpFormBackground = document.querySelector('#pop-up-form');
 
 
     detailBtns.forEach(btn => {
         btn.addEventListener('click', e => {
-            popUpBackground.classList.toggle('hidden');
+            popUpFormBackground.classList.toggle('hidden');
         })
     });
 
@@ -19,6 +20,26 @@ function detailsPopUp() {
     });
 
     popUp.addEventListener('click', e => {
+        e.stopPropagation();
+    })
+}
+
+function todoPopUp() {
+    const addBtn = document.querySelector('.iconify-clicked-wrapper');
+    const popUpBackground = document.querySelector('#pop-up-form');
+    const popUpForm = document.querySelector('#pop-up-form form');
+    console.log(addBtn);
+    console.log(popUpBackground);
+
+    addBtn.addEventListener('click', e => {
+        popUpBackground.classList.toggle('hidden');
+    });
+
+    popUpBackground.addEventListener('click', e => {
+        popUpBackground.classList.toggle('hidden');
+    });
+
+    popUpForm.addEventListener('click', e => {
         e.stopPropagation();
     })
 }
@@ -89,7 +110,7 @@ function getTodoFormData() {
         // reset the form after it has been submitted
         form.reset();
         uncheckPriority();
-        
+
         // projectService.saveProject(project1);
         // const project1 = new Project('House Innovation');
         // project1.addTask(task);
@@ -112,6 +133,7 @@ function getTodoFormData() {
 }
 
 detailsPopUp();
+todoPopUp();
 setFocusPriority();
 getTodoFormData();
 
