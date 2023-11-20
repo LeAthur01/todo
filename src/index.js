@@ -1,17 +1,17 @@
 import Project from './entity/Project.js';
 import Task from './entity/Task.js';
 import projectService from './service/ProjectService.js';
-// Popup the details of a todo when clicking on the detail buttons
-function detailsPopUp() {
-    const detailBtns = document.querySelectorAll('#todos .button');
-    const popUpBackground = document.querySelector('#pop-up');
-    const popUp = document.querySelector('#pop-up div');
-    const popUpFormBackground = document.querySelector('#pop-up-form');
 
+// Popup the details of a todo when clicking on the detail buttons
+function detailsPopUp(task) {
+    const toDoSelector = `div[id='${task.getId()}']`;
+    const detailBtns = document.querySelectorAll(`#todos ${toDoSelector} .button`);
+    const popUpBackground = document.querySelector(`${toDoSelector} #pop-up`);
+    const popUp = document.querySelector(`${toDoSelector} #pop-up div`);
 
     detailBtns.forEach(btn => {
         btn.addEventListener('click', e => {
-            popUpFormBackground.classList.toggle('hidden');
+            popUpBackground.classList.toggle('hidden');
         })
     });
 
@@ -114,6 +114,9 @@ function saveTodoFormData() {
         universalProject.addTask(task);
         projectService.saveProject(universalProject);
 
+        // Render the added task
+        addTask(task);
+
         // reset the form after it has been submitted
         form.reset();
         uncheckPriority();
@@ -122,11 +125,50 @@ function saveTodoFormData() {
     });
 }
 
+function addTask(task) {
+    const todoBoard = document.querySelector('#todos');
+    const taskEl = document.createElement('div');
+    taskEl.setAttribute('id', task.getId());
+
+    // Make due date right format
+    const taskDueDate = task.getDueDate();
+    const month = taskDueDate.toLocaleString('en-us', { month: 'short' });
+    const dateFormat = `${month} ${taskDueDate.getDate()}th`;
+    
+    const taskElMarkup = `
+        <div class="vertical-line"></div>
+        <input type="checkbox">
+        <span class="todo-title">${task.getName()}</span>
+        <span class="button">details</span>
+        <span class="date">${dateFormat}</span>
+        <span class="iconify" data-icon="ep:edit"></span>
+        <span class="iconify" data-icon="ph:trash"></span>
+
+        <div id="pop-up" class="fullscreen hidden">
+            <div class="flex-container-center">
+                <span class="heading">${task.getName()}</span>
+                <p><span>Project:</span> Default</p>
+                <p><span>Priority:</span> ${task.getPriority()}</p>
+                <p><span>Due Date:</span> ${dateFormat + ', ' + taskDueDate.getFullYear()}</p>
+                <p><span>Details:</span> ${task.getDescription()}</p>
+            </div>
+        </div>
+    `    
+    taskEl.innerHTML = taskElMarkup;
+    todoBoard.appendChild(taskEl);
+
+    // Pop up details of a todo being clicked
+    detailsPopUp(task);
+
+    // Close form after the form has been submitted
+    const popUpBackground = document.querySelector('#pop-up-form');
+    popUpBackground.classList.toggle('hidden');
+}
+
 function loadPage() {
 
 }
 
-detailsPopUp();
 todoPopUp();
 setFocusPriority();
 saveTodoFormData();

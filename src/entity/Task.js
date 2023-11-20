@@ -44,6 +44,10 @@ export default class Task {
         this.priority = priority;
     }
 
+    getPriority(priority) {
+        return this.priority;
+    }
+
     setDone(done) {
         this.done = done;
     }
